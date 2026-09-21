@@ -49,7 +49,7 @@ Never take an image from the article's own website; it belongs to someone else.
 Skip this step if `articles.html` exists and its menu item is in place on all pages.
 
 1. Create `articles.html` by copying `about.html`, then change:
-   - `<title>` to `Articles - 4-testing`
+   - `<title>` to `Articles - 4-testing`, and the `<meta name="description">` to a one-line description of the Articles page
    - `<body class="page-about">` to `<body class="page-articles">`
    - the `<h1>` to `Articles`
    - `aria-current="page"`: remove it from About and put it on the Articles link
@@ -88,7 +88,7 @@ Insert a new `<li>` at the **top** of `<ul class="articles">` in `articles.html`
     <h2><a href="<article url>" target="_blank" rel="noopener noreferrer"><title></a></h2>
     <p class="article-meta"><source> &middot; <date></p>
     <p><teaser></p>
-    <p><a href="<article url>" target="_blank" rel="noopener noreferrer">Read the article</a></p>
+    <p><a href="<article url>" target="_blank" rel="noopener noreferrer" aria-label="Read the article: <title>">Read the article</a></p>
     <p class="photo-credit">Photo: <what it shows> (<author/source>, <license>)</p>
   </div>
 </li>
