@@ -137,6 +137,31 @@ input[aria-invalid="true"], textarea[aria-invalid="true"] { border-color: var(--
 /* Honeypot: off-screen for people, still in the page for bots. */
 .hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
 ::selection { background: color-mix(in srgb, var(--accent) 35%, transparent); color: var(--text); }
+
+/* Language picker on the homepage. Hidden without JavaScript, because it needs it to work. */
+.lang-picker { display: none; }
+.js .lang-picker {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.6rem;
+  padding-top: 0.75rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.js .lang-picker + header { padding-top: 1.5rem; }
+.lang-picker label { font-weight: 500; }
+select {
+  font: inherit;
+  min-height: 44px;
+  padding: 0.4rem 0.8rem;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid color-mix(in srgb, var(--muted) 60%, var(--surface));
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+select:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 button, .button {
   justify-self: start;
   display: inline-block;

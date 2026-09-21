@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Heb je een vraag of een project in gedachten? Stuur 4-testing een bericht.">
-  <title>Contact - 4-testing</title>
+  <meta name="description" content="Heb je een vraag of een project in gedachten? Stuur 4-testing een bericht." data-en-content="Got a question or a project in mind? Send 4-testing a message.">
+  <title data-en="Contact - 4-testing">Contact - 4-testing</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -23,8 +23,8 @@
         4-testing
       </a>
       <ul>
-        <li><a href="about.html">Over ons</a></li>
-        <li><a href="articles.html">Artikelen</a></li>
+        <li><a href="about.html" data-en="About">Over ons</a></li>
+        <li><a href="articles.html" data-en="Articles">Artikelen</a></li>
         <li><a href="contact.html" aria-current="page">Contact</a></li>
       </ul>
     </div>
@@ -36,32 +36,33 @@
     </header>
 
     <main>
-      <p>Heb je een vraag of een project in gedachten? Stuur ons een bericht, dan nemen we snel contact met je op. Je kunt ons ook vinden op <a href="https://www.linkedin.com/in/milo-van-der-kruis-2b18a73/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.</p>
-      <p>Liever mailen? Schrijf naar <a href="mailto:milo@4-testing.nl">milo@4-testing.nl</a>.</p>
-      <form id="contact-form" action="mailto:milo@4-testing.nl?subject=Bericht%20via%204-testing.nl" method="post" enctype="text/plain" data-endpoint="">
+      <p><span data-en="Got a question or a project in mind? Send us a message and we'll get back to you soon.">Heb je een vraag of een project in gedachten? Stuur ons een bericht, dan nemen we snel contact met je op.</span> <span data-en="You can also find us on">Je kunt ons ook vinden op</span> <a href="https://www.linkedin.com/in/milo-van-der-kruis-2b18a73/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.</p>
+      <p><span data-en="Prefer email? Write to">Liever mailen? Schrijf naar</span> <a href="mailto:milo@4-testing.nl">milo@4-testing.nl</a>.</p>
+      <form id="contact-form" action="mailto:milo@4-testing.nl?subject=Bericht%20via%204-testing.nl" data-en-action="mailto:milo@4-testing.nl?subject=Message%20via%204-testing.nl" method="post" enctype="text/plain" data-endpoint="">
         <div class="field">
-          <label for="name">Naam</label>
+          <label for="name" data-en="Name">Naam</label>
           <input id="name" type="text" name="name" required maxlength="100" autocomplete="name" aria-describedby="name-error">
           <p class="field-error" id="name-error" hidden></p>
         </div>
         <div class="field">
-          <label for="email">E-mail</label>
+          <label for="email" data-en="Email">E-mail</label>
           <input id="email" type="email" name="email" required maxlength="254" autocomplete="email" aria-describedby="email-error">
           <p class="field-error" id="email-error" hidden></p>
         </div>
         <div class="field">
-          <label for="message">Bericht</label>
+          <label for="message" data-en="Message">Bericht</label>
           <textarea id="message" name="message" rows="5" required maxlength="2000" aria-describedby="message-error"></textarea>
           <p class="field-error" id="message-error" hidden></p>
         </div>
-        <p class="hp" aria-hidden="true"><label>Laat dit leeg <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></p>
-        <button type="submit">Versturen</button>
+        <p class="hp" aria-hidden="true"><label><span data-en="Leave this empty">Laat dit leeg</span> <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></p>
+        <button type="submit" data-en="Send it">Versturen</button>
         <p class="form-status" id="form-status" role="status" hidden></p>
       </form>
     </main>
 
     <footer>&copy; 2026 4-testing &middot; Milo van der Kruis &middot; <a href="https://www.linkedin.com/in/milo-van-der-kruis-2b18a73/" target="_blank" rel="noopener noreferrer">LinkedIn</a></footer>
   </div>
+  <script src="i18n.js"></script>
   <script src="contact.js" defer></script>
 </body>
 </html>

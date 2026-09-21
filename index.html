@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="4-testing helpt je om bugs vroeg te vinden, voordat je gebruikers ze tegenkomen. Testadvies en testen door Milo van der Kruis.">
+  <meta name="description" content="4-testing helpt je om bugs vroeg te vinden, voordat je gebruikers ze tegenkomen. Testadvies en testen door Milo van der Kruis." data-en-content="4-testing helps you find bugs early, before your users do. Test advice and testing by Milo van der Kruis.">
   <title>4-testing</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
@@ -23,40 +23,48 @@
         4-testing
       </a>
       <ul>
-        <li><a href="about.html">Over ons</a></li>
-        <li><a href="articles.html">Artikelen</a></li>
+        <li><a href="about.html" data-en="About">Over ons</a></li>
+        <li><a href="articles.html" data-en="Articles">Artikelen</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
   </nav>
 
   <div class="wrap">
+    <div class="lang-picker">
+      <label for="language" data-en="Language">Taal</label>
+      <select id="language" name="language">
+        <option value="nl" selected>Nederlands</option>
+        <option value="en">English</option>
+      </select>
+    </div>
     <header>
       <div class="hero">
         <svg class="logo" aria-hidden="true"><use href="#logo"/></svg>
         <div>
           <h1>4-testing</h1>
-          <p class="tagline">Softwaretesten waar je op kunt bouwen.</p>
+          <p class="tagline" data-en="Software testing you can count on.">Softwaretesten waar je op kunt bouwen.</p>
         </div>
       </div>
     </header>
 
     <main>
-      <p>
+      <p data-en="We help you find bugs early, before your users do. That way you can release your software without the stress.">
         We helpen je om bugs vroeg te vinden, voordat je gebruikers ze tegenkomen.
         Zo kun je je software live zetten zonder stress.
       </p>
-      <h2>Wat we doen</h2>
+      <h2 data-en="What we do">Wat we doen</h2>
       <ul class="services">
-        <li><strong>Testadvies.</strong> We helpen je kiezen wat je test, wanneer en hoe, zodat je tijd naar de juiste plek gaat.</li>
-        <li><strong>Testen.</strong> We testen je software en laten je weten wat we vinden.</li>
+        <li data-en-html="<strong>Test advice.</strong> We help you decide what to test, when to test it, and how, so your time goes where it matters."><strong>Testadvies.</strong> We helpen je kiezen wat je test, wanneer en hoe, zodat je tijd naar de juiste plek gaat.</li>
+        <li data-en-html="<strong>Testing.</strong> We test your software and report what we find."><strong>Testen.</strong> We testen je software en laten je weten wat we vinden.</li>
       </ul>
       <p>
-        <a class="button" href="contact.html">Vertel ons over je project</a>
+        <a class="button" href="contact.html" data-en="Tell us about your project">Vertel ons over je project</a>
       </p>
     </main>
 
     <footer>&copy; 2026 4-testing &middot; Milo van der Kruis &middot; <a href="https://www.linkedin.com/in/milo-van-der-kruis-2b18a73/" target="_blank" rel="noopener noreferrer">LinkedIn</a></footer>
   </div>
+  <script src="i18n.js"></script>
 </body>
 </html>
