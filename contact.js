@@ -11,7 +11,7 @@
   if (!form) return;
 
   var MAIL = 'milo@4-testing.nl';
-  var SUBJECT = 'Message via 4-testing.nl';
+  var SUBJECT = 'Bericht via 4-testing.nl';
   var MAILTO_LIMIT = 1800; // long mailto links get cut off by some mail apps
   var TIMEOUT_MS = 15000;
 
@@ -24,10 +24,10 @@
   form.noValidate = true; // we show our own messages, but only when JS is running
 
   var problems = {
-    name: 'Tell us your name, so we know who to reply to.',
-    emailMissing: 'We need your email address to reply.',
-    emailWrong: "That email address doesn't look right. Is there a typo?",
-    message: 'Write us a message first.'
+    name: 'Vul je naam in, dan weten we wie we moeten antwoorden.',
+    emailMissing: 'We hebben je e-mailadres nodig om te kunnen antwoorden.',
+    emailWrong: 'Dit e-mailadres lijkt niet te kloppen. Zit er een typfout in?',
+    message: 'Schrijf eerst een bericht.'
   };
 
   function check(field) {
@@ -73,7 +73,7 @@
     sending = busy;
     button.disabled = busy;
     form.setAttribute('aria-busy', busy ? 'true' : 'false');
-    button.textContent = busy ? 'Sending…' : 'Send it';
+    button.textContent = busy ? 'Bezig met versturen…' : 'Versturen';
   }
 
   // Clear a field's message as soon as the visitor starts fixing it.
@@ -89,7 +89,7 @@
     var timer = controller ? setTimeout(function () { controller.abort(); }, TIMEOUT_MS) : null;
 
     setBusy(true);
-    showStatus('info', 'Sending your message…');
+    showStatus('info', 'Je bericht wordt verstuurd…');
 
     fetch(endpoint, {
       method: 'POST',
@@ -100,14 +100,14 @@
       .then(function (response) {
         if (!response.ok) throw new Error('HTTP ' + response.status);
         form.reset();
-        showStatus('success', "Thanks, we got your message. We'll get back to you soon.");
+        showStatus('success', 'Bedankt, we hebben je bericht ontvangen. We nemen snel contact met je op.');
       })
       .catch(function () {
         // The text stays in the fields, so nothing the visitor typed is lost.
         if (navigator.onLine === false) {
-          showStatus('error', "You seem to be offline. Your message is still here. Try again when you're back online, or email us at", true);
+          showStatus('error', 'Je lijkt offline te zijn. Je bericht staat er nog. Probeer het opnieuw als je weer online bent, of mail ons op', true);
         } else {
-          showStatus('error', "Something went wrong and your message wasn't sent. It's still here, so you can try again. Or email us at", true);
+          showStatus('error', 'Er ging iets mis en je bericht is niet verstuurd. Het staat er nog, dus je kunt het opnieuw proberen. Of mail ons op', true);
         }
       })
       .then(function () {
@@ -117,15 +117,15 @@
   }
 
   function openMailApp(data) {
-    var body = 'Name: ' + data.name + '\nEmail: ' + data.email + '\n\n' + data.message;
+    var body = 'Naam: ' + data.name + '\nE-mail: ' + data.email + '\n\n' + data.message;
     var url = 'mailto:' + MAIL + '?subject=' + encodeURIComponent(SUBJECT) + '&body=' + encodeURIComponent(body);
 
     if (url.length > MAILTO_LIMIT) {
-      showStatus('error', 'Your message is too long for the email link. Shorten it a bit, or email us at', true);
+      showStatus('error', 'Je bericht is te lang voor de e-maillink. Kort het wat in, of mail ons op', true);
       return;
     }
     window.location.href = url;
-    showStatus('info', "Your email app should open with your message ready. Nothing happened? Email us at", true);
+    showStatus('info', 'Je e-mailprogramma zou moeten openen met je bericht klaar. Gebeurt er niets? Mail ons dan op', true);
   }
 
   form.addEventListener('submit', function (event) {
@@ -140,14 +140,14 @@
       if (text && !firstProblem) firstProblem = field;
     });
     if (firstProblem) {
-      showStatus('error', 'Almost there. Check the fields above.');
+      showStatus('error', 'Bijna klaar. Kijk even naar de velden hierboven.');
       firstProblem.focus();
       return;
     }
 
     // A real visitor never sees the hidden field. If it is filled in, a bot did it.
     if (form.elements._gotcha && form.elements._gotcha.value) {
-      showStatus('success', "Thanks, we got your message. We'll get back to you soon.");
+      showStatus('success', 'Bedankt, we hebben je bericht ontvangen. We nemen snel contact met je op.');
       return;
     }
 
