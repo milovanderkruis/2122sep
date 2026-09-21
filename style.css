@@ -15,6 +15,7 @@ body.page-home    { --bg: #0b1216; --surface: #131c22; --border: #24323b; }
 body.page-about   { --bg: #0c1120; --surface: #141b2f; --border: #26314d; }
 body.page-history { --bg: #150f0a; --surface: #211812; --border: #3a2b20; }
 body.page-contact { --bg: #150c1a; --surface: #201427; --border: #382646; }
+body.page-articles { --bg: #0a1510; --surface: #111f18; --border: #22382b; }
 
 body {
   background: var(--bg);
@@ -87,6 +88,21 @@ main p { color: color-mix(in srgb, var(--text) 88%, var(--muted)); }
   margin-bottom: 1rem;
 }
 .timeline strong { color: var(--accent); }
+
+.articles { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.5rem; }
+.article-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+.article-card img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.article-card .body { padding: 1rem 1.25rem 1.25rem; }
+.article-card h2 { font-size: 1.25rem; letter-spacing: -0.01em; line-height: 1.3; margin: 0 0 0.25rem; }
+.article-card h2 a { color: var(--text); text-decoration: none; }
+.article-card h2 a:hover { color: var(--accent); }
+.article-meta { color: var(--muted); font-size: 0.9rem; margin: 0 0 0.75rem; }
+.article-card p:last-child { margin-bottom: 0; }
 
 form { display: grid; gap: 1rem; }
 label { display: grid; gap: 0.35rem; font-weight: 600; }

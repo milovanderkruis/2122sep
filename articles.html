@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Contact - 4-testing</title>
+  <title>Articles - 4-testing</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="page-contact">
+<body class="page-articles">
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <symbol id="logo" viewBox="0 0 32 32">
       <rect class="logo-bg" width="32" height="32" rx="7"/>
@@ -24,31 +24,29 @@
       <ul>
         <li><a href="about.html">About</a></li>
         <li><a href="history.html">History</a></li>
-        <li><a href="articles.html">Articles</a></li>
-        <li><a href="contact.html" aria-current="page">Contact</a></li>
+        <li><a href="articles.html" aria-current="page">Articles</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
   </nav>
 
   <div class="wrap">
     <header>
-      <h1>Contact</h1>
+      <h1>Articles</h1>
     </header>
 
     <main>
-      <p>Got a question or a project in mind? Send us a message and we'll get back to you soon. You can also find us on <a href="https://www.linkedin.com/in/milo-van-der-kruis-2b18a73/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.</p>
-      <form action="mailto:milo@4-testing.nl?subject=Message%20via%204-testing.nl" method="post" enctype="text/plain">
-        <label>Name
-          <input type="text" name="name" required autocomplete="name">
-        </label>
-        <label>Email
-          <input type="email" name="email" required autocomplete="email">
-        </label>
-        <label>Message
-          <textarea name="message" rows="5" required></textarea>
-        </label>
-        <button type="submit">Send it</button>
-      </form>
+      <p>Articles we found interesting.</p>
+      <ul class="articles">
+        <li class="article-card">
+          <div class="body">
+            <h2><a href="https://www.splunk.com/en_us/blog/learn/software-testing.html" target="_blank" rel="noopener noreferrer">Software Testing: Complete Beginner's Guide</a></h2>
+            <p class="article-meta">Splunk &middot; June 3, 2025</p>
+            <p>A beginner's guide to software testing. It explains what testing is, the different ways to test, and who does what in a testing team.</p>
+            <p><a href="https://www.splunk.com/en_us/blog/learn/software-testing.html" target="_blank" rel="noopener noreferrer">Read the article</a></p>
+          </div>
+        </li>
+      </ul>
     </main>
 
     <footer>&copy; 2026 4-testing &middot; Milo van der Kruis &middot; <a href="https://www.linkedin.com/in/milo-van-der-kruis-2b18a73/" target="_blank" rel="noopener noreferrer">LinkedIn</a></footer>
