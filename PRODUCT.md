@@ -24,7 +24,7 @@ Open decision. What sets 4-testing apart from other testing providers has not be
 - Pages today: Home, About, Articles, Contact. History was removed (it only held placeholders) and returns once Milo supplies real milestones. The Articles page lists curated links to third-party articles, each with a short teaser and an optional photo.
 - Contact currently works through a `mailto:` form. A form service (e.g. Formspree) is planned once Milo has an endpoint.
 - Hosted as a static site on GitHub Pages from a public repository.
-- The site is bilingual: Dutch (default) and English, chosen with a dropdown on the homepage. Tone in both languages is fairly informal and simple: "je/jij" or "you" and "we", short sentences, no jargon (see `CLAUDE.md`).
+- The site is bilingual: Dutch (default) and English, chosen with a dropdown in the menu of every page. Tone in both languages is fairly informal and simple: "je/jij" or "you" and "we", short sentences, no jargon (see `CLAUDE.md`).
 - Undecided: the founding date and real History milestones, concrete service descriptions, and the price or engagement model. None of these may be invented.
 
 ## Brand Commitments
