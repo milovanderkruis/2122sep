@@ -27,5 +27,16 @@ Examples that fit the style (keep these in Dutch, they are site copy):
 - All pages share the same nav bar and footer. If you change one, change it on all four pages.
 - New articles are added with the `/nieuw-artikel` skill (`.claude/skills/nieuw-artikel/`). It creates `articles.html` on first use and adds a card per article.
 - Languages: the HTML holds the Dutch text. Every element with text gets its English version in a data attribute, handled by `i18n.js`: `data-en="..."` (text), `data-en-html="..."` (text with HTML such as `<strong>`), `data-en-<attribute>="..."` (for `alt`, `aria-label`, `content`, `action`). A new page or new text without English fails the tests. The visitor's choice lives in `localStorage` under `lang` and applies to all pages; the dropdown (`<select id="language">`) sits in the shared menu on every page, exactly once per page. Form messages in `contact.js` have their own nl/en table.
-- Tests: `npm test` (Node's built-in runner plus jsdom, see `tests/`). Work test-first: write the failing test, show it, then build. Run the tests before every commit.
+- Tests: `npm test` (Node's built-in runner plus jsdom, see `tests/`). Work test-first: write the failing test, show it, then build. See Verification below for when they must be run.
 - The contact form currently uses `mailto:`. It will be replaced by a form service once Milo has a form URL.
+
+## Verification (required)
+
+The tests are the verification. A change is not done until `npm test` has been run and passes.
+
+- Run `npm test` after your last edit and before you tell Milo that something works, before you commit, and before you push. An earlier run does not count once files have changed.
+- Every report of finished work says that the tests ran and gives the result, for example "22 van 22 tests geslaagd". Never claim it from memory or say "should pass".
+- If a test fails, say so with the failing test names. Do not commit or push until it is green.
+- Never make a test pass by deleting it, skipping it, or weakening what it checks. Fix the code. If the test itself is wrong, say so and explain what you changed and why.
+- Behaviour that no test covers yet gets a test first (red, then green). This includes new pages and new texts, which need their English version to pass.
+- Tests do not replace looking at the result. For visual changes, also check the page in a browser at desktop and phone width.
