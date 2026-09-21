@@ -102,6 +102,7 @@ main p { color: color-mix(in srgb, var(--text) 88%, var(--muted)); }
 .article-card h2 a { color: var(--text); text-decoration: none; }
 .article-card h2 a:hover { color: var(--accent); }
 .article-meta { color: var(--muted); font-size: 0.9rem; margin: 0 0 0.75rem; }
+.photo-credit { color: var(--muted); font-size: 0.8rem; margin: 0.75rem 0 0; }
 .article-card p:last-child { margin-bottom: 0; }
 
 form { display: grid; gap: 1rem; }
