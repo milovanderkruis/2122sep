@@ -54,7 +54,7 @@ Skip this step if `articles.html` exists and its menu item is in place on all pa
    - the `<h1>` to `Articles`
    - `aria-current="page"`: remove it from About and put it on the Articles link
    - `<main>` so it holds only `<p>Articles we found interesting.</p>` and an empty `<ul class="articles"></ul>`
-2. Add `<li><a href="articles.html">Articles</a></li>` between History and Contact in **all** pages (`index.html`, `about.html`, `history.html`, `contact.html`, `articles.html`). All pages share one menu, so a page without the item feels broken. Only `articles.html` gets `aria-current="page"`.
+2. Add `<li><a href="articles.html">Articles</a></li>` between About and Contact in **all** pages (`index.html`, `about.html`, `contact.html`, `articles.html`). All pages share one menu, so a page without the item feels broken. Only `articles.html` gets `aria-current="page"`.
 3. Add this to `style.css` if it is not there yet. The `body.page-articles` line goes with the other `body.page-*` lines, the rest goes above `form`:
 
 ```css

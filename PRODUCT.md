@@ -21,7 +21,7 @@ Open decision. What sets 4-testing apart from other testing providers has not be
 ## Capabilities and Constraints
 
 - Services offered (confirmed): test advice and carrying out tests. Test automation and training/coaching were explicitly not selected, so the site must not claim them.
-- Pages today: Home, About, History, Articles, Contact. The Articles page lists curated links to third-party articles, each with a short teaser and an optional photo.
+- Pages today: Home, About, Articles, Contact. History was removed (it only held placeholders) and returns once Milo supplies real milestones. The Articles page lists curated links to third-party articles, each with a short teaser and an optional photo.
 - Contact currently works through a `mailto:` form. A form service (e.g. Formspree) is planned once Milo has an endpoint.
 - Hosted as a static site on GitHub Pages from a public repository.
 - Site language is English, with a fairly informal, simple tone: "you" and "we", short sentences, no jargon (see `CLAUDE.md`).

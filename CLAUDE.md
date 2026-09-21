@@ -21,8 +21,8 @@ Examples that fit the style:
 
 ## Structure
 
-- Pages: `index.html` (home), `about.html` (About), `history.html` (History), `contact.html` (Contact).
-- One `style.css`: dark theme with a cyan accent. Each page has its own background via `body.page-home/about/history/contact`.
+- Pages: `index.html` (home), `about.html` (About), `articles.html` (Articles), `contact.html` (Contact). A History page existed but was removed until Milo has real milestones; do not bring it back with placeholders.
+- One `style.css`: dark theme with a cyan accent. Each page has its own background via `body.page-home/about/articles/contact`.
 - The logo is an inline SVG symbol (`<symbol id="logo">`) reused on every page with `<use>`.
 - All pages share the same nav bar and footer. If you change one, change it on all four pages.
 - New articles are added with the `/nieuw-artikel` skill (`.claude/skills/nieuw-artikel/`). It creates `articles.html` on first use and adds a card per article.
