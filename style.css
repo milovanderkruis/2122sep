@@ -149,6 +149,25 @@ nav select { font-size: 0.9rem; padding: 0.4rem 0.6rem; }
   .nav-tools { gap: 0 0.75rem; }
   nav select { font-size: 0.85rem; padding-inline: 0.4rem; }
 }
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  padding: 0.6rem 1rem;
+  background: var(--accent);
+  color: var(--accent-text);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 0 0 8px 0;
+  transform: translateY(-200%);
+}
+.skip-link:focus {
+  transform: translateY(0);
+}
+main:focus {
+  outline: none;
+}
 .sr-only {
   position: absolute;
   width: 1px;
