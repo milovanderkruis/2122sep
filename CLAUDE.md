@@ -27,7 +27,8 @@ Examples that fit the style (keep these in Dutch, they are site copy):
 - All pages share the same nav bar and footer. If you change one, change it on all four pages.
 - New articles are added with the `/nieuw-artikel` skill (`.claude/skills/nieuw-artikel/`). It creates `articles.html` on first use and adds a card per article.
 - Languages: the HTML holds the Dutch text. Every element with text gets its English version in a data attribute, handled by `i18n.js`: `data-en="..."` (text), `data-en-html="..."` (text with HTML such as `<strong>`), `data-en-<attribute>="..."` (for `alt`, `aria-label`, `content`, `action`). A new page or new text without English fails the tests. The visitor's choice lives in `localStorage` under `lang` and applies to all pages; the dropdown (`<select id="language">`) sits in the shared menu on every page, exactly once per page. Form messages in `contact.js` have their own nl/en table.
-- Tests: `npm test` (Node's built-in runner plus jsdom, see `tests/`). Work test-first: write the failing test, show it, then build. See Verification below for when they must be run.
+- `mcp/`: a small Python MCP server with one tool, `list_articles` (title, word count, url of every article on `articles.html`). It needs `mcp/.venv` (see `mcp/README.md`); the `.venv` is not committed. It is registered in Claude Code as `4-testing-articles` (local scope). If you change how article cards are marked up in `articles.html`, `mcp/articles.py` must still find them; its tests check that.
+- Tests: `npm test` (Node's built-in runner plus jsdom in `tests/`, and the Python tests in `mcp/`). Work test-first: write the failing test, show it, then build. See Verification below for when they must be run.
 - The contact form currently uses `mailto:`. It will be replaced by a form service once Milo has a form URL.
 
 ## Verification (required)
