@@ -111,6 +111,9 @@ main h2 { font-size: 1.25rem; letter-spacing: -0.01em; line-height: 1.3; margin:
 
 form { display: grid; gap: 1.25rem; }
 .field { display: grid; gap: 0.35rem; }
+/* display: grid wint van het hidden-attribuut, dus we zeggen het er apart bij.
+   Zo blijft het sommetje weg bij bezoekers zonder JavaScript. */
+.field[hidden] { display: none; }
 label { font-weight: 600; }
 input, textarea {
   box-sizing: border-box;

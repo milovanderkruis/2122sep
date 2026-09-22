@@ -33,7 +33,9 @@
       name: 'Vul je naam in, dan weten we wie we moeten antwoorden.',
       emailMissing: 'We hebben je e-mailadres nodig om te kunnen antwoorden.',
       emailWrong: 'Dit e-mailadres lijkt niet te kloppen. Zit er een typfout in?',
-      message: 'Schrijf eerst een bericht.'
+      message: 'Schrijf eerst een bericht.',
+      sumMissing: 'Reken de som even uit, dan weten we dat je geen robot bent.',
+      sumWrong: 'Dat klopt niet helemaal. Probeer de nieuwe som.'
     },
     en: {
       subject: 'Message via 4-testing.nl',
@@ -51,7 +53,9 @@
       name: 'Tell us your name, so we know who to reply to.',
       emailMissing: 'We need your email address to reply.',
       emailWrong: "That email address doesn't look right. Is there a typo?",
-      message: 'Write us a message first.'
+      message: 'Write us a message first.',
+      sumMissing: 'Work out the sum, so we know you are not a robot.',
+      sumWrong: "That's not quite right. Try the new sum."
     }
   };
 
@@ -62,10 +66,36 @@
   var endpoint = (form.getAttribute('data-endpoint') || '').trim();
   var status = document.getElementById('form-status');
   var button = form.querySelector('button[type="submit"]');
-  var fields = ['name', 'email', 'message'].map(function (id) { return document.getElementById(id); });
+  var fields = ['name', 'email', 'message', 'sum'].map(function (id) { return document.getElementById(id); })
+    .filter(Boolean);
   var sending = false;
 
   form.noValidate = true; // we show our own messages, but only when JS is running
+
+  // A small sum keeps out bots that post blindly. The answer lives here only,
+  // never in the HTML, and the field stays hidden without JS: nothing to fill in
+  // that nobody could check.
+  var sumField = document.getElementById('sum-field');
+  var sumInput = document.getElementById('sum');
+  var sumQuestion = document.getElementById('sum-question');
+  var sumAnswer = null;
+
+  function newSum() {
+    var previous = sumQuestion.textContent;
+    var a, b, question;
+    do {
+      a = 1 + Math.floor(Math.random() * 9);
+      b = 1 + Math.floor(Math.random() * 9);
+      question = a + ' + ' + b;
+    } while (question === previous); // never the same sum twice in a row
+    sumQuestion.textContent = question;
+    sumAnswer = a + b;
+  }
+
+  if (sumField) {
+    sumField.hidden = false;
+    newSum();
+  }
 
   function check(field) {
     var value = field.value.trim();
@@ -74,6 +104,10 @@
     if (field.id === 'email') {
       if (!value) return t('emailMissing');
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) return t('emailWrong');
+    }
+    if (field.id === 'sum') {
+      if (!value) return t('sumMissing');
+      if (Number(value) !== sumAnswer) return t('sumWrong');
     }
     return '';
   }
@@ -137,6 +171,7 @@
       .then(function (response) {
         if (!response.ok) throw new Error('HTTP ' + response.status);
         form.reset();
+        if (sumField) newSum(); // reset() empties the answer, so ask a new sum
         showStatus('success', t('thanks'));
       })
       .catch(function () {
@@ -172,6 +207,11 @@
       showFieldError(field, text);
       if (text && !firstProblem) firstProblem = field;
     });
+    // A wrong answer gets a fresh sum, so guessing the same number twice never works.
+    if (sumInput && sumInput.value.trim() && Number(sumInput.value.trim()) !== sumAnswer) {
+      sumInput.value = '';
+      newSum();
+    }
     if (firstProblem) {
       showStatus('error', t('fix'));
       firstProblem.focus();

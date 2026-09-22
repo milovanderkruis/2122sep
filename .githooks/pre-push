@@ -1,0 +1,12 @@
+#!/bin/sh
+# Runs the test suite before anything is pushed. A failing test blocks the push.
+# Installed automatically by `npm install` (see the "prepare" script in package.json).
+
+echo "Draai tests voor de push..."
+npm test
+
+if [ $? -ne 0 ]; then
+  echo ""
+  echo "Tests falen. Push tegengehouden. Los de tests eerst op."
+  exit 1
+fi

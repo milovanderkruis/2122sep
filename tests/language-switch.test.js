@@ -128,7 +128,10 @@ test('de artikelpagina vertaalt kaartjes, alt-teksten en linknamen', async funct
 
 test('het contactformulier heeft Engelse labels en Engelse foutmeldingen', async function () {
   const w = await openPage('contact', 'en');
-  assert.deepEqual(qa(w, '.field label').map(text), ['Name', 'Email', 'Message']);
+  const labels = qa(w, '.field label').map(text);
+  assert.deepEqual(labels.slice(0, 3), ['Name', 'Email', 'Message']);
+  assert.equal(labels.length, 4, 'het formulier heeft een ander aantal velden dan verwacht');
+  assert.match(labels[3], /^Quick check: what is \d+ \+ \d+\?$/); // de getallen wisselen per bezoek
   assert.equal(text(q(w, 'button[type="submit"]')), 'Send it');
   assert.match(text(q(w, 'main')), /Prefer email\? Write to milo@4-testing\.nl/);
 
@@ -150,7 +153,7 @@ test('in Engelse modus staat er nergens Nederlandse interface-tekst meer', async
   const dutch = [
     'Wat we doen', 'Vertel ons', 'Over ons', 'Artikelen', 'Lees het artikel', 'Liever mailen',
     'Versturen', 'Naam', 'Bericht', 'Softwaretesten waar', 'We helpen je', 'Taal',
-    'Heb je een vraag', 'Foto:', 'Laat dit leeg', 'in het Engels'
+    'Heb je een vraag', 'Foto:', 'Laat dit leeg', 'in het Engels', 'Even checken'
   ];
   for (const page of PAGES) {
     const w = await openPage(page, 'en');
